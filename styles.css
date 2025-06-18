@@ -29,7 +29,6 @@ body {
     padding: 0 20px;
 }
 
-/* Header y Navigation */
 header {
     background: rgba(44, 44, 44, 0.95);
     backdrop-filter: blur(10px);
@@ -92,7 +91,6 @@ nav {
     color: var(--primary-orange);
 }
 
-/* Hero Section */
 .hero {
     background: linear-gradient(135deg, var(--dark-gray) 0%, var(--medium-gray) 100%);
     color: var(--white);
@@ -159,7 +157,6 @@ nav {
     box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
 }
 
-/* Secciones principales */
 .section {
     padding: 80px 0;
     position: relative;
@@ -189,7 +186,6 @@ nav {
     border-radius: 2px;
 }
 
-/* Sobre mí */
 .about-content {
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -253,7 +249,6 @@ nav {
     transform: translateY(-2px);
 }
 
-/* Proyectos */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -332,7 +327,6 @@ nav {
     color: var(--secondary-orange);
 }
 
-/* Formulario de contacto */
 .contact-form {
     max-width: 600px;
     margin: 0 auto;
@@ -393,7 +387,6 @@ nav {
     box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
 }
 
-/* Footer */
 footer {
     background: var(--dark-gray);
     color: var(--white);
