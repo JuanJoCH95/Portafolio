@@ -51,6 +51,13 @@ function handleContactForm() {
     form.addEventListener('submit', function (e) {
         e.preventDefault();
 
+        const formData = {
+            nombre: form.nombre.value,
+            email: form.email.value,
+            asunto: form.asunto.value,
+            mensaje: form.mensaje.value
+        };
+
         // Animación de envío
         const submitBtn = form.querySelector('.submit-btn');
         const originalText = submitBtn.textContent;
@@ -58,19 +65,42 @@ function handleContactForm() {
         submitBtn.textContent = 'Enviando...';
         submitBtn.disabled = true;
 
-        // Simular envío (aquí integrarías con tu backend)
-        setTimeout(() => {
-            submitBtn.textContent = '¡Mensaje Enviado!';
-            submitBtn.style.background = '#4CAF50';
+        sendWithFormspree(formData, form, submitBtn, originalText);
+    });
+}
 
+// Envio de correo
+function sendWithFormspree(formData, form, submitBtn, originalText) {
+    const formspreeUrl = 'https://formspree.io/f/mrbkabaj';
+
+    fetch(formspreeUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+    })
+        .then(response => {
+            if (response.ok) {
+                submitBtn.textContent = '¡Mensaje Enviado!';
+                submitBtn.style.background = '#4CAF50';
+                form.reset();
+            } else {
+                throw new Error('Error en el envío');
+            }
+        })
+        .catch(error => {
+            submitBtn.textContent = 'Error al enviar';
+            submitBtn.style.background = '#f44336';
+            console.error('Error:', error);
+        })
+        .finally(() => {
             setTimeout(() => {
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
                 submitBtn.style.background = '';
-                form.reset();
-            }, 2000);
-        }, 1500);
-    });
+            }, 3000);
+        });
 }
 
 // Efectos de hover para las tarjetas de proyecto
