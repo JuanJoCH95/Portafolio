@@ -92,33 +92,13 @@ nav {
 }
 
 .hero {
-    background: linear-gradient(135deg, var(--dark-gray) 0%, var(--medium-gray) 100%);
+    background: linear-gradient(180deg, rgba(44,44,44,0.65), rgba(44,44,44,0.35)), url('images/BannerDev.jpg') center/cover no-repeat;
+    background-blend-mode: overlay;
     color: var(--white);
     padding: 120px 0 80px;
     text-align: center;
     position: relative;
     overflow: hidden;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,107,53,0.1)"/></svg>') repeat;
-    animation: float 20s infinite linear;
-}
-
-@keyframes float {
-    0% {
-        transform: translateY(0px);
-    }
-
-    100% {
-        transform: translateY(-100px);
-    }
 }
 
 .hero-content {
