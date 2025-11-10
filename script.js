@@ -122,6 +122,61 @@ document.addEventListener('DOMContentLoaded', function () {
     observeElements();
     handleContactForm();
     enhanceProjectCards();
+
+    // Obtener los elementos del DOM
+    const modal = document.getElementById("project-modal");
+    const modalImg = document.getElementById("modal-img-principal");
+    const closeBtn = document.getElementsByClassName("close")[0];
+    const galleryTriggers = document.querySelectorAll(".project-image-trigger");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+
+    let currentImageIndex = 0;
+    let currentGalleryImages = [];
+
+    // Función para mostrar una imagen específica
+    function showImage(n) {
+        if (currentGalleryImages.length === 0) return;
+
+        if (n >= currentGalleryImages.length) {
+            currentImageIndex = 0;
+        } else if (n < 0) {
+            currentImageIndex = currentGalleryImages.length - 1;
+        } else {
+            currentImageIndex = n;
+        }
+        modalImg.src = currentGalleryImages[currentImageIndex];
+    }
+
+    prevBtn.addEventListener('click', () => showImage(currentImageIndex - 1));
+    nextBtn.addEventListener('click', () => showImage(currentImageIndex + 1));
+
+    // Función para abrir el modal
+    galleryTriggers.forEach(img => {
+        img.addEventListener('click', function() {
+            currentGalleryImages = this.getAttribute('data-project-images').split(','); 
+            currentGalleryImages = currentGalleryImages.map(src => src.trim());
+            currentImageIndex = 0;
+            showImage(currentImageIndex);
+
+            modal.style.display = "block";
+
+            const thumbnailsContainer = modal.querySelector('.thumbnails');
+            if (thumbnailsContainer) thumbnailsContainer.style.display = 'none';
+        });
+    });
+
+    // Función para cerrar el modal
+    closeBtn.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // Función para cerrar el modal al hacer click fuera
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
 });
 
 // Event listeners

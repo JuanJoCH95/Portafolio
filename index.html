@@ -40,7 +40,7 @@
                     </div>
                 </div>
                 <div class="about-text">
-                    <h3>¡Hola! Soy Juan José Cardona, un desarrollador de software apasionado</h3>
+                    <h3>¡Hola! Soy Juan José Cardona, un dev apasionado</h3>
                     <p>Tengo 29 años y soy de Medellín, Colombia. Me gustan los gatos, los cómics, el anime, los videojuegos, la música y el mundo de la tecnología.
                     Cuento con más de 6 años de experiencia en el desarrollo de aplicaciones web y móviles; conocimientos en desarrollo backend, lenguajes de programación, frameworks, arquitecturas de software, bases de datos, servidores y contenedores.
                     He trabajado en proyectos de alto nivel para sistemas de tránsito y transporte, en startups y equipos de desarrollo ágil.
@@ -68,7 +68,8 @@
             <div class="projects-grid fade-in">
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="images/MyLib.JPG" alt="Imagen del proyecto" class="project-image">
+                        <img src="images/MyLib.JPG" alt="Imagen del proyecto" class="project-image project-image-trigger"
+                        data-project-images="images/MyLib.JPG,images/MyLib2.JPG,images/MyLib3.JPG">
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">MyLib</h3>
@@ -163,8 +164,20 @@
                     <img src="images/Instagram.png" alt="Instagram" class="social-icon" width="30px" height="30px">
                 </a>
             </div>
-            <p class="footer-text">&copy; 2025 Mi Portafolio. Todos los derechos reservados.</p>
+            <p class="footer-text">&copy; 2025 JuanjoDev. Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    <div id="project-modal" class="modal">
+        <span class="close">&times;</span>
+        <div class="modal-content">
+            <div class="modal-gallery">
+                <img id="modal-img-principal" src="" alt="Imagen del proyecto ampliada">
+                <a class="prev" id="prevBtn">&#10094;</a>
+                <a class="next" id="nextBtn">&#10095;</a>
+                <div class="thumbnails" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
