@@ -37,11 +37,11 @@ function handleHeaderScroll() {
     const scrollY = window.scrollY;
 
     if (scrollY > 100) {
-        header.style.background = 'rgba(44, 44, 44, 0.98)';
-        header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+        header.style.boxShadow = '0 2px 20px rgba(46,204,113,0.35)';
+        header.style.backdropFilter = 'blur(12px)';
     } else {
-        header.style.background = 'rgba(44, 44, 44, 0.95)';
         header.style.boxShadow = 'none';
+        header.style.backdropFilter = '';
     }
 }
 
